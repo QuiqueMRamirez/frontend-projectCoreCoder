@@ -7,6 +7,7 @@ import './Login.css';
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
 import CustomCard from "./Components/Card/Card";
+import {useHistory} from 'react-router-dom';
 
 const loginSchema = yup.object().shape({
   username: yup.string().required(),
@@ -35,6 +36,9 @@ const styleCard = {
 }
 
 const Login = () => {
+
+  const history = useHistory();
+
     const { control, handleSubmit, reset, formState: {errors} } = useForm({
         resolver: yupResolver(loginSchema),
         defaultValues: {
@@ -46,6 +50,11 @@ const Login = () => {
         console.log(data);
         reset();
       }
+    
+    function handleClick(){
+      history.push('/register')
+    }
+
     return (
         <>
     <div className="containerIndex">
@@ -57,7 +66,7 @@ const Login = () => {
         <p style={{color: 'red'}}>{errors.password?.message}</p>
         <div className="containerButtons">
           <Buton type="submit" variant="primary" styles={styleButtons} text="Login"/>
-          <Buton variant="secondary" styles={styleButtons} text="Register"/>
+          <Buton variant="secondary" styles={styleButtons} text="Register" operation={handleClick} />
         </div>
       </form>
       </CustomCard>

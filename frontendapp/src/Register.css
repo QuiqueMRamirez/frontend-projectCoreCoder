@@ -1,0 +1,48 @@
+.containerIndex {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+.pruebaCard{
+  width: 500px;
+  max-width: 90%;
+}
+
+.pruebaBody{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  
+}
+
+.cuerpecito{
+  flex: 1 1 45%;
+  margin: auto;
+}
+
+.containerButtons{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  width: 100%;
+}
+
+.exito {
+	text-align: center;
+	font-size: 14px;
+	padding-top: 20px;
+	color: #02a802;
+}
+
+.error {
+	color: #e92b2d;
+	font-weight: 600;
+	font-size: 12px;
+}

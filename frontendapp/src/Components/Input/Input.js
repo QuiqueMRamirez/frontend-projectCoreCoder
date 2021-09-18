@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import { useController } from 'react-hook-form';
 
 const Input = (props) => {
-    const {label, controlId, classname, type, required} = props;
+    const {label, controlId, classname, type, styleInput} = props;
     const {field} = useController(props);
     return (
         <>
@@ -12,7 +12,7 @@ const Input = (props) => {
               label={label}
               className={classname}
             >
-              <Form.Control {...field} type={type} placeholder={label}/>
+              <Form.Control {...field} type={type} placeholder={label} style={styleInput}/>
             </FloatingLabel>
         </>
     )

@@ -2,13 +2,13 @@ import React from 'react'
 import {Button} from 'react-bootstrap';
 
 const Buton = (props) => {
-    const {variant, styles, text, type} = props;
+    const {variant, styles, text, type, operation} = props;
 
     return (
         <>
-            <Button variant={variant} style={styles} type={type}>
-                {text}
-              </Button>
+        {type==="submit" ? 
+        <Button variant={variant} style={styles} type={type}>{text}</Button> : 
+        <Button variant={variant} style={styles} type={type} onClick={()=>{operation();}}>{text}</Button>}
         </>
     )
 }
