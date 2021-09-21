@@ -1,6 +1,5 @@
 import React from 'react'
 import {Form, FloatingLabel} from 'react-bootstrap';
-import { useController } from 'react-hook-form';
 
 const InputSelect = (props) => {
     const {controlId, label, options, onBlur, onChange, name, value} = props;

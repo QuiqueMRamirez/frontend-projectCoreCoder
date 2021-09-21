@@ -48,7 +48,9 @@ const Login = () => {
       });
       const onSubmit = (data) => {
         console.log(data);
+        
         reset();
+        //history.push('/home')
       }
     
     function handleClick(){

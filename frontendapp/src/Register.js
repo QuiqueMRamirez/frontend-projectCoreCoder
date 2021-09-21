@@ -2,11 +2,8 @@ import React, {useState} from 'react'
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
 import CustomCard from "./Components/Card/Card";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import './Register.css'
-import TestInput from "./Components/DatePicker/Datepicker";
 import {Formik} from 'formik';
 import Select from "./Components/Select/Select";
 import {useHistory} from 'react-router-dom';
@@ -93,19 +90,19 @@ const Register = () => {
                     {({handleSubmit,values, handleChange, handleBlur, errors, touched}) => (
                         <form onSubmit={handleSubmit} style={styleBody}>
                             <div style={styleInput}>
-                                <TestInput type="text" name="firstName" value={values.firstName} label="First name" onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="text" name="firstName" value={values.firstName} label="First name" onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.firstName && errors.firstName && <div className="error">{errors.firstName}</div>}
                             </div>
                             <div style={styleInput}>
-                                <TestInput type="text" name="lastName" value={values.lastName} label="Last name" onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="text" name="lastName" value={values.lastName} label="Last name" onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.lastName && errors.lastName && <div className="error">{errors.lastName}</div>}
                             </div>
                             <div style={styleInput}>
-                                <TestInput type="email" name="email" value={values.email} label="Email" onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="email" name="email" value={values.email} label="Email" onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.email && errors.email && <div className="error">{errors.email}</div>}
                             </div>
                             <div style={styleInput}>
-                                <TestInput type="text" name="celular" value={values.celular} label="Celular" onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="text" name="celular" value={values.celular} label="Celular" onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.celular && errors.celular && <div className="error">{errors.celular}</div>}
                             </div>
                             <div style={styleInput}>
@@ -117,11 +114,11 @@ const Register = () => {
                                 {touched.city && errors.city && <div className="error">{errors.city}</div>}
                             </div>
                             <div style={styleInput}>
-                                <TestInput type="password" name="password" label="Password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="password" name="password" label="Password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.password && errors.password && <div className="error">{errors.password}</div>}
                             </div>
                             <div style={styleInput}>
-                                <TestInput type="password" name="confirm_password" label="Confirm password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
+                                <Input type="password" name="confirm_password" label="Confirm password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
                                 {touched.confirm_password && errors.confirm_password && <div className="error">{errors.confirm_password}</div>}
                             </div>
                             <div className="containerButtons">

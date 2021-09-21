@@ -1,10 +1,12 @@
 import "./App.css";
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Login from './Login';
 import Register from './Register';
+import Home from './Home';
+import ExpIncome from './ExpenseIncome';
 
 function App() {
   
@@ -16,6 +18,8 @@ function App() {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/register" component={Register} />
+              <Route path="/home" component={Home} />
+              <Route path="/addexpincome" component={ExpIncome} />
             </Switch>
           </div>
         </div>
