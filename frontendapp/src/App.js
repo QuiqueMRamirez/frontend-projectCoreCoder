@@ -7,7 +7,7 @@ import Login from './Login';
 import Register from './Register';
 import Home from './Home';
 import ExpIncome from './ExpenseIncome';
-
+import Banks from './Banks';
 function App() {
   
   return (
@@ -20,6 +20,7 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route path="/home" component={Home} />
               <Route path="/addexpincome" component={ExpIncome} />
+              <Route path="/banks" component={Banks} />
             </Switch>
           </div>
         </div>
