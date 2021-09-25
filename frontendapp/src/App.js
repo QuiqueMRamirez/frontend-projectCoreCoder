@@ -8,6 +8,8 @@ import Register from './Register';
 import Home from './Home';
 import ExpIncome from './ExpenseIncome';
 import Banks from './Banks';
+import Transactions from './Transactions';
+
 function App() {
   
   return (
@@ -21,6 +23,7 @@ function App() {
               <Route path="/home" component={Home} />
               <Route path="/addexpincome" component={ExpIncome} />
               <Route path="/banks" component={Banks} />
+              <Route path="/transactions" component={Transactions} />
             </Switch>
           </div>
         </div>

@@ -1,4 +1,4 @@
-.containerBank {
+.containerTransactions {
     height: 100vh;
     width: 100vw;
     background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
@@ -10,12 +10,9 @@
     
   }
 
-  .containerFormIncExp {
+  .containerButtons{
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    align-content: center;
+    width: 100%;
   }
-
- 

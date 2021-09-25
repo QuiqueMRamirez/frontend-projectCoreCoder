@@ -38,12 +38,6 @@ export const tableConstants = (handleEdit) => {
         },
       },
       {
-        title: 'Coin',
-        render: rowData => {
-          return <span>{rowData.coin}</span>;
-        },
-      },
-      {
         title: 'Bank',
         render: rowData => {
           return <span>{rowData.bank}</span>;
@@ -55,12 +49,25 @@ export const tableConstants = (handleEdit) => {
           return <span>{rowData.name}</span>;
         },
       },
+
+      {
+        title: 'Coin',
+        render: rowData => {
+          return <span>{rowData.coin}</span>;
+        },
+      },
+      {
+        title: 'Amount',
+        render: rowData => {
+          return <span>{rowData.amount}</span>;
+        },
+      },
       {
         title: 'Action',
         render: rowData => {
           return <>
-          <button className='btn btn-warning' onClick={handleEdit(rowData)}>Edit</button>
-          <button className='btn btn-danger' onClick={handleEdit(rowData)}>Delete</button>
+          <button className='btn btn-warning' style={{marginLeft: '4px'}} onClick={handleEdit(rowData)}>Edit</button>
+          <button className='btn btn-danger' style={{marginLeft: '4px'}} onClick={handleEdit(rowData)}>Delete</button>
           </>
         },
       },
@@ -74,7 +81,8 @@ export const tableConstants = (handleEdit) => {
       "type": "Ahorro",
       "coin": "GTQ",
       "bank": "Banco Industrial",
-      "name": "Cuenta de ahorros"
+      "name": "Cuenta de ahorros",
+      "amount": 1000
     },
     {
       "id": 2,
@@ -82,7 +90,8 @@ export const tableConstants = (handleEdit) => {
       "type": "Ahorro",
       "coin": "GTQ",
       "bank": "Banrural",
-      "name": "Cuenta de ahorros"
+      "name": "Cuenta de ahorros",
+      "amount": 1000
     },
     {
       "id": 3,
@@ -90,7 +99,8 @@ export const tableConstants = (handleEdit) => {
       "type": "Monetaria",
       "coin": "USD",
       "bank": "Banco G&T",
-      "name": "Cuenta monetaria personal"
+      "name": "Cuenta monetaria personal",
+      "amount": 1000
     },
     {
       "id": 4,
@@ -98,7 +108,8 @@ export const tableConstants = (handleEdit) => {
       "type": "Monetaria",
       "coin": "USD",
       "bank": "Banco Industrial",
-      "name": "Cuenta monetaria Quique"
+      "name": "Cuenta monetaria Quique",
+      "amount": 1000
     },
     {
       "id": 5,
@@ -106,7 +117,8 @@ export const tableConstants = (handleEdit) => {
       "type": "Ahorro",
       "coin": "GTQ",
       "bank": "Banco Industrial",
-      "name": "Cuenta de ahorros"
+      "name": "Cuenta de ahorros",
+      "amount": 1000
     }
   ]
 
@@ -114,7 +126,8 @@ const styles = {
     'margin': 'auto',
     'width': '50% !important',
     'marginLeft': '20px',
-    'marginRight': '20px'
+    'marginRight': '20px',
+    'textAlign': 'center',
   }
 
   const styleHeaderCard = {

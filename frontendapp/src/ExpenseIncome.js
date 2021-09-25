@@ -1,6 +1,5 @@
 import React from 'react'
 import NavMenu from './Components/NavMenu/NavMenu';
-import Table from './Components/Table/Table';
 import CustomCard from "./Components/Card/Card";
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
@@ -14,82 +13,11 @@ import './ExpenseIncome.css';
 const incomeExpenseSchema = yup.object().shape({
   name: yup.string().required(),
   type: yup.string().required(),
+  debitAccount: yup.number().positive().required(),
+  amount: yup.number().positive().required()
 });
 
-export const tableConstants = (handleEdit) => {
-    return [
-      {
-        title: 'ID',
-        render: rowData => {
-          return <span>{rowData.id}</span>;
-        },
-      },
-      {
-        title: 'Name',
-        render: rowData => {
-          return <span>{rowData.name}</span>;
-        },
-      },
-      {
-        title: 'Type',
-        render: rowData => {
-          return <span>{rowData.type}</span>;
-        },
-      },
-      {
-        title: 'Create Date',
-        render: rowData => {
-          return <span>{rowData.date}</span>;
-        },
-      },
-      {
-        title: 'Action',
-        render: rowData => {
-          return <button className='btn btn-warning' onClick={handleEdit(rowData)}>Edit</button>
-        },
-      },
-    ];
-  };
 
-  export const data = [
-    {
-      "id": 1,
-      "name": "Income1",
-      "type": "Income",
-      "date": "29-apr-2021",
-    },
-    {
-      "id": 2,
-      "name": "Expense1",
-      "type": "Expense",
-      "date": "29-apr-2021",
-    },
-    {
-      "id": 3,
-      "name": "Expense2",
-      "type": "Expense",
-      "date": "29-apr-2021",
-    },
-    {
-      "id": 4,
-      "name": "Income3",
-      "type": "Income",
-      "date": "29-apr-2021",
-    },
-    {
-      "id": 5,
-      "name": "Income4",
-      "type": "Income",
-      "date": "29-apr-2021",
-    }
-  ]
-
-  const styles = {
-    'margin': 'auto',
-    'width': '50% !important',
-    'marginLeft': '20px',
-    'marginRight': '20px'
-  }
 
   const styleHeaderCard = {
     'textAlign': 'center',
@@ -114,7 +42,9 @@ const styleBody = {
 
 const initialValues = {
   name:'',
-  type:''
+  type:'',
+  debitAccount: 0,
+  amount: 0,
 }
 
 const styleInput = {
@@ -127,10 +57,7 @@ const styleInput = {
 
   
 const ExpenseIncome = () => {
-    const handleEdit = (item) => () => {
-        // write your logic
-        alert(JSON.stringify(item))
-      }
+
     
     const onSubmit = (valores,{resetForm}) => {
       console.log(valores);
@@ -141,6 +68,11 @@ const ExpenseIncome = () => {
       { key: 1, value:'Inc', label: 'Income'},
       { key: 2, value:'Exp', label: 'Expense'}
   ]
+
+  let optionsDebit = [
+    { key: 1, value:12, label: 'Account GTQ-MON-123123123'},
+    { key: 2, value:23, label: 'Account USD-MON-443333422'}
+]
 
     return (
         <>
@@ -161,6 +93,14 @@ const ExpenseIncome = () => {
                     <Select label='Type' name="type" options={optionsType} value={values.type} onChange={handleChange} onBlur={handleBlur}></Select>
                     {touched.type && errors.type && <div className="error">{errors.type}</div>}
                   </div>
+                  <div style={styleInput}>
+                    <Select label='Debit/Credit Account' name="debitAccount" options={optionsDebit} value={values.debitAccount} onChange={handleChange} onBlur={handleBlur}/>
+                    {touched.debitAccount && errors.debitAccount && <div className="error">{errors.debitAccount}</div>}
+                  </div>
+                  <div style={styleInput}>
+                    <Input type="number" name="amount" value={values.amount} label="Amount" onChange={handleChange} onBlur={handleBlur}/>
+                    {touched.amount && errors.amount && <div className="error">{errors.amount}</div>}
+                  </div>               
                   <div className="containerButtons">
                     <Buton type="submit" variant="success" styles={styleInput} text="Save"/>
                   </div>                 
@@ -169,7 +109,6 @@ const ExpenseIncome = () => {
               }  
               </Formik>
             </CustomCard>
-            <Table cols={tableConstants(handleEdit)} data={data} bordered striped hoverable styles={styles} />
         </div>
         </>
         
