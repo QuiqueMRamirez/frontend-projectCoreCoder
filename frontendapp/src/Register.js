@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
 import CustomCard from "./Components/Card/Card";
+import Alert from './Components/AlertMessage/AlertMessage';
 import * as yup from "yup";
 import './Register.css'
 import {Formik} from 'formik';
@@ -125,7 +126,7 @@ const Register = () => {
                                 <Buton type="submit" variant="success" styles={styleInput} text="Save"/>
                                 <Buton variant="primary" styles={styleInput} text="Login" operation={handleClick}/>
                             </div>
-                            {formEnviado && <p className="exito">Formulario enviado con exito!</p>}
+                            {formEnviado && <Alert variant="success" text="Registration was successful"/>}
                         </form>
                     )}
                     </Formik>

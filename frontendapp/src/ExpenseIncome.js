@@ -1,10 +1,9 @@
-import React from 'react'
-import NavMenu from './Components/NavMenu/NavMenu';
+import React, {useState} from 'react'
 import CustomCard from "./Components/Card/Card";
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
 import Select from "./Components/Select/Select";
-
+import Alert from './Components/AlertMessage/AlertMessage';
 import {Formik} from 'formik';
 import * as yup from "yup";
 
@@ -56,12 +55,20 @@ const styleInput = {
 }
 
   
-const ExpenseIncome = () => {
+const ExpenseIncome = ({height, width}) => {
 
+    const [formEnviado, setFormEnviado] = useState(false);
+
+    const styleDiv = {
+      'height': height || '100vh',
+      'width': width || '100vw'
+    }
     
     const onSubmit = (valores,{resetForm}) => {
       console.log(valores);
       resetForm();
+      setFormEnviado(true);
+      setTimeout(() => setFormEnviado(false),3000);
     }
 
     let optionsType = [
@@ -76,7 +83,7 @@ const ExpenseIncome = () => {
 
     return (
         <>
-        <div className="containerIE">
+        <div className="containerIE" style={styleDiv}>
             {/*<NavMenu />*/}
             <CustomCard headerText="Register Income/Expense" headerStyle={styleHeaderCard} cardStyle={styleCard} bodyStyle={styleBody}>
               <Formik
@@ -103,7 +110,8 @@ const ExpenseIncome = () => {
                   </div>               
                   <div className="containerButtons">
                     <Buton type="submit" variant="success" styles={styleInput} text="Save"/>
-                  </div>                 
+                  </div>
+                  {formEnviado && <Alert variant="success" text="Registration was successful"/>}                 
                 </form>
               )
               }  

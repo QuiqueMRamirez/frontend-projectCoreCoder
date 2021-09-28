@@ -1,7 +1,7 @@
-import React from 'react'
-import NavMenu from './Components/NavMenu/NavMenu';
+import React, {useState} from 'react'
 import Table from './Components/Table/Table';
 import CustomCard from "./Components/Card/Card";
+import Alert from './Components/AlertMessage/AlertMessage';
 import Input from "./Components/Input/Input";
 import Buton from "./Components/Button/Button";
 import Select from "./Components/Select/Select";
@@ -168,9 +168,12 @@ const initialValues = {
 }
 const Banks = () => {
 
+    const [formEnviado, setFormEnviado] = useState(false);
     const onSubmit = (valores,{resetForm}) => {
         console.log(valores);
         resetForm();
+        setFormEnviado(true);
+        setTimeout(() => setFormEnviado(false),3000);
     }
 
     let optionsType = [
@@ -226,7 +229,8 @@ const Banks = () => {
                         </div>
                         <div className="containerButtons">
                             <Buton type="submit" variant="success" styles={styleInput} text="Save"/>
-                        </div>                 
+                        </div>
+                        {formEnviado && <Alert variant="success" text="Registration was successful"/>}                 
                         </form>
                     )
                     }  

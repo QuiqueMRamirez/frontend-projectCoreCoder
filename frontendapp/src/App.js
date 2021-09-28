@@ -9,7 +9,7 @@ import ExpIncome from './ExpenseIncome';
 import Banks from './Banks';
 import Transactions from './Transactions';
 import NavMenu from './Components/NavMenu/NavMenu';
-import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       
       <Router>
         <div>
-        <NavMenu isLoggedIn={false}/>
+        <NavMenu isLoggedIn={true}/>
           <div className="content">
             <Switch>
               <Route exact path="/" component={Login} />

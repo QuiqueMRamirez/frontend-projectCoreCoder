@@ -1,6 +1,5 @@
 import React from 'react'
 import './Home.css'
-import NavMenu from './Components/NavMenu/NavMenu';
 import Transactions from './Transactions';
 import ExpenseIncome from './ExpenseIncome'
 import Charts from './Components/Chart/BankChart';
@@ -17,8 +16,8 @@ const Home = () => {
     return (
         <>
         <div className="containerIndexHome">
-            <Transactions />
-            <ExpenseIncome />
+            <Transactions height width/>
+            <ExpenseIncome height width/>
             <Charts type="ColumnChart" width="90%" height="400px" data={data}/>
         </div>
         </>

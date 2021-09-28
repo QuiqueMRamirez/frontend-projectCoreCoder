@@ -7,7 +7,7 @@ const NavMenu = ({isLoggedIn}) => {
         <>
         {isLoggedIn ? <Navbar bg="light" expand="md" style={{width: '100%'}}>
                 <Container>
-                    <Navbar.Brand href="#home">Menu</Navbar.Brand>
+                    <Navbar.Brand href="home">Menu</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -15,7 +15,6 @@ const NavMenu = ({isLoggedIn}) => {
                         <Nav.Link href="addexpincome">Expenses/Income</Nav.Link>
                         <Nav.Link href="transactions">Transactions</Nav.Link>
                         <Nav.Link href="register">History Transactions</Nav.Link>
-                        <Nav.Link href="register">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

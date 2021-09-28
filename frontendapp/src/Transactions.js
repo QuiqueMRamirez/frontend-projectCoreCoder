@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Transactions.css';
 import CustomCard from "./Components/Card/Card";
 import Input from "./Components/Input/Input";
+import Alert from './Components/AlertMessage/AlertMessage';
 import Buton from "./Components/Button/Button";
 import Select from "./Components/Select/Select";
 import {Formik} from 'formik';
 import * as yup from "yup";
-import NavMenu from './Components/NavMenu/NavMenu';
 
 const transactionSchema = yup.object().shape({
     debitAccount: yup.number().positive().required(),
@@ -43,11 +43,20 @@ const styleInput = {
     'marginRight': '5px'
   }
 
-const Transactions = () => {
+const Transactions = ({height, width}) => {
+
+    const [formEnviado, setFormEnviado] = useState(false);
+
+    const styleDiv = {
+        'height': height || '100vh',
+        'width': width || '100vw'
+    }
 
     const onSubmit = (valores,{resetForm}) =>{
         console.log(valores);
         resetForm();
+        setFormEnviado(true);
+        setTimeout(() => setFormEnviado(false),3000);
     };
 
     const initialValues = {
@@ -67,7 +76,7 @@ const Transactions = () => {
     ]
     return (
         <>
-            <div className="containerTransactions">
+            <div className="containerTransactions" style={styleDiv}>
                 {/*<NavMenu />*/}
                 <CustomCard headerText="Transactions" headerStyle={styleHeaderCard} cardStyle={styleCard} bodyStyle={styleBody}>
                     <Formik validationSchema={transactionSchema} initialValues={initialValues} onSubmit={onSubmit}>
@@ -87,7 +96,8 @@ const Transactions = () => {
                                 </div>
                                 <div className="containerButtons">
                                     <Buton type="submit" variant="success" styles={styleInput} text="Save"/>
-                                </div> 
+                                </div>
+                                {formEnviado && <Alert variant="success" text="Registration was successful"/>} 
                             </form>
                         )} 
                     </Formik>
