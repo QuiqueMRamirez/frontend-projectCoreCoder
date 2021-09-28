@@ -1,5 +1,4 @@
 import "./App.css";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,13 +8,18 @@ import Home from './Home';
 import ExpIncome from './ExpenseIncome';
 import Banks from './Banks';
 import Transactions from './Transactions';
+import NavMenu from './Components/NavMenu/NavMenu';
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+
 
 function App() {
   
   return (
     <div className="App">
-      <BrowserRouter>
+      
+      <Router>
         <div>
+        <NavMenu isLoggedIn={false}/>
           <div className="content">
             <Switch>
               <Route exact path="/" component={Login} />
@@ -27,7 +31,7 @@ function App() {
             </Switch>
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

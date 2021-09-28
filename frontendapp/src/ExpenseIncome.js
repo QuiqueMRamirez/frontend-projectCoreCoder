@@ -77,7 +77,7 @@ const ExpenseIncome = () => {
     return (
         <>
         <div className="containerIE">
-            <NavMenu />
+            {/*<NavMenu />*/}
             <CustomCard headerText="Register Income/Expense" headerStyle={styleHeaderCard} cardStyle={styleCard} bodyStyle={styleBody}>
               <Formik
               validationSchema={incomeExpenseSchema}

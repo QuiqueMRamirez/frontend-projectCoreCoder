@@ -196,7 +196,7 @@ const Banks = () => {
     return (
         <>
             <div className="containerBank">
-                <NavMenu/>
+                {/*<NavMenu/>*/}
                 <CustomCard headerText="Bank Account" headerStyle={styleHeaderCard} cardStyle={styleCard} bodyStyle={styleBody}>
                     <Formik
                     validationSchema={bankSchema}

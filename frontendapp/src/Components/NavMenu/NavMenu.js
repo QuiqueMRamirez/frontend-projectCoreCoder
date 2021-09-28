@@ -1,10 +1,11 @@
 import React from 'react'
 import {Navbar, Nav, Container} from 'react-bootstrap'
 
-const NavMenu = () => {
+const NavMenu = ({isLoggedIn}) => {
+
     return (
         <>
-            <Navbar bg="light" expand="md" style={{width: '100%'}}>
+        {isLoggedIn ? <Navbar bg="light" expand="md" style={{width: '100%'}}>
                 <Container>
                     <Navbar.Brand href="#home">Menu</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -18,7 +19,8 @@ const NavMenu = () => {
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> : null}
+            
         </>
     )
 }

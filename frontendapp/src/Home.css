@@ -4,8 +4,12 @@
     background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .chartDiv{
     
   }

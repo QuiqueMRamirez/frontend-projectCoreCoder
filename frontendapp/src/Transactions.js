@@ -68,7 +68,7 @@ const Transactions = () => {
     return (
         <>
             <div className="containerTransactions">
-                <NavMenu />
+                {/*<NavMenu />*/}
                 <CustomCard headerText="Transactions" headerStyle={styleHeaderCard} cardStyle={styleCard} bodyStyle={styleBody}>
                     <Formik validationSchema={transactionSchema} initialValues={initialValues} onSubmit={onSubmit}>
                         {({handleSubmit,values, handleChange, handleBlur, errors, touched}) => (
