@@ -2,12 +2,12 @@ import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Login from "./Login";
-import Register from "./Register";
-import Home from "./Home";
-import ExpIncome from "./ExpenseIncome";
-import Banks from "./Banks";
-import Transactions from "./Transactions";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import Home from "./Pages/Home/Home";
+import ExpIncome from "./Pages/ExpenseIncome/ExpenseIncome";
+import Banks from "./Pages/Banks/Banks";
+import Transactions from "./Pages/Transactions/Transactions";
 import NavMenu from "./Components/NavMenu/NavMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

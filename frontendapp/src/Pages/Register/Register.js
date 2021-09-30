@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Input from "./Components/Input/Input";
-import Buton from "./Components/Button/Button";
-import CustomCard from "./Components/Card/Card";
-import Alert from "./Components/AlertMessage/AlertMessage";
+import Input from "../../Components/Input/Input";
+import Buton from "../../Components/Button/Button";
+import CustomCard from "../../Components/Card/Card";
+import Alert from "../../Components/AlertMessage/AlertMessage";
 import * as yup from "yup";
 import "./Register.css";
 import { Formik } from "formik";
-import Select from "./Components/Select/Select";
+import Select from "../../Components/Select/Select";
 import { useHistory } from "react-router-dom";
 
 const registerSchema = yup.object().shape({

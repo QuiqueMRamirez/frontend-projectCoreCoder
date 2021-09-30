@@ -4,9 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import './Login.css';
 
-import Input from "./Components/Input/Input";
-import Buton from "./Components/Button/Button";
-import CustomCard from "./Components/Card/Card";
+import Input from "../../Components/Input/Input";
+import Buton from "../../Components/Button/Button";
+import CustomCard from "../../Components/Card/Card";
 import {useHistory} from 'react-router-dom';
 
 const loginSchema = yup.object().shape({

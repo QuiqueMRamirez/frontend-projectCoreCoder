@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import CustomCard from "./Components/Card/Card";
-import Input from "./Components/Input/Input";
-import Buton from "./Components/Button/Button";
-import Select from "./Components/Select/Select";
-import Alert from "./Components/AlertMessage/AlertMessage";
+import "./Transactions.css";
+import CustomCard from "../../Components/Card/Card";
+import Input from "../../Components/Input/Input";
+import Alert from "../../Components/AlertMessage/AlertMessage";
+import Buton from "../../Components/Button/Button";
+import Select from "../../Components/Select/Select";
 import { Formik } from "formik";
 import * as yup from "yup";
 
-import "./ExpenseIncome.css";
-
-const incomeExpenseSchema = yup.object().shape({
-  name: yup.string().required(),
-  type: yup.string().required(),
+const transactionSchema = yup.object().shape({
   debitAccount: yup.number().positive().required(),
+  creaditAccount: yup.number().positive().required(),
   amount: yup.number().positive().required(),
 });
 
@@ -37,13 +35,6 @@ const styleBody = {
   width: "100%",
 };
 
-const initialValues = {
-  name: "",
-  type: "",
-  debitAccount: 0,
-  amount: 0,
-};
-
 const styleInput = {
   flex: "1 1 45%",
   margin: "auto",
@@ -52,7 +43,7 @@ const styleInput = {
   marginRight: "5px",
 };
 
-const ExpenseIncome = ({ height, width }) => {
+const Transactions = ({ height, width }) => {
   const [formSubmit, setFormSubmit] = useState(false);
 
   const styleDiv = {
@@ -67,27 +58,32 @@ const ExpenseIncome = ({ height, width }) => {
     setTimeout(() => setFormSubmit(false), 3000);
   };
 
-  let optionsType = [
-    { key: 1, value: "Inc", label: "Income" },
-    { key: 2, value: "Exp", label: "Expense" },
-  ];
+  const initialValues = {
+    debitAccount: 0,
+    creaditAccount: 0,
+    amount: 0,
+  };
 
   let optionsDebit = [
     { key: 1, value: 12, label: "Account GTQ-MON-123123123" },
     { key: 2, value: 23, label: "Account USD-MON-443333422" },
   ];
 
+  let optionsCredit = [
+    { key: 1, value: 56, label: "Account GTQ-MON-123123123" },
+    { key: 2, value: 76, label: "Account USD-MON-443333422" },
+  ];
   return (
     <>
-      <div className="containerIE" style={styleDiv}>
+      <div className="containerTransactions" style={styleDiv}>
         <CustomCard
-          headerText="Register Income/Expense"
+          headerText="Transactions"
           headerStyle={styleHeaderCard}
           cardStyle={styleCard}
           bodyStyle={styleBody}
         >
           <Formik
-            validationSchema={incomeExpenseSchema}
+            validationSchema={transactionSchema}
             initialValues={initialValues}
             onSubmit={onSubmit}
           >
@@ -101,34 +97,8 @@ const ExpenseIncome = ({ height, width }) => {
             }) => (
               <form onSubmit={handleSubmit} style={styleBody}>
                 <div style={styleInput}>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={values.name}
-                    label="Name"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {touched.name && errors.name && (
-                    <div className="error">{errors.name}</div>
-                  )}
-                </div>
-                <div style={styleInput}>
                   <Select
-                    label="Type"
-                    name="type"
-                    options={optionsType}
-                    value={values.type}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  ></Select>
-                  {touched.type && errors.type && (
-                    <div className="error">{errors.type}</div>
-                  )}
-                </div>
-                <div style={styleInput}>
-                  <Select
-                    label="Debit/Credit Account"
+                    label="Debit Account"
                     name="debitAccount"
                     options={optionsDebit}
                     value={values.debitAccount}
@@ -137,6 +107,19 @@ const ExpenseIncome = ({ height, width }) => {
                   />
                   {touched.debitAccount && errors.debitAccount && (
                     <div className="error">{errors.debitAccount}</div>
+                  )}
+                </div>
+                <div style={styleInput}>
+                  <Select
+                    label="Credit Account"
+                    name="creaditAccount"
+                    options={optionsCredit}
+                    value={values.creaditAccount}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {touched.creaditAccount && errors.creaditAccount && (
+                    <div className="error">{errors.creaditAccount}</div>
                   )}
                 </div>
                 <div style={styleInput}>
@@ -172,4 +155,4 @@ const ExpenseIncome = ({ height, width }) => {
   );
 };
 
-export default ExpenseIncome;
+export default Transactions;

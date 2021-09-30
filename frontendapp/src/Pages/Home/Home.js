@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
-import Transactions from "./Transactions";
-import ExpenseIncome from "./ExpenseIncome";
-import Charts from "./Components/Chart/BankChart";
+import Transactions from "../Transactions/Transactions";
+import ExpenseIncome from "../ExpenseIncome/ExpenseIncome";
+import Charts from "../../Components/Chart/BankChart";
 
 const data = [
   ["Element", "Density", { role: "style" }],

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Table from "./Components/Table/Table";
-import CustomCard from "./Components/Card/Card";
-import Alert from "./Components/AlertMessage/AlertMessage";
-import Input from "./Components/Input/Input";
-import Buton from "./Components/Button/Button";
-import Select from "./Components/Select/Select";
+import Table from "../../Components/Table/Table";
+import CustomCard from "../../Components/Card/Card";
+import Alert from "../../Components/AlertMessage/AlertMessage";
+import Input from "../../Components/Input/Input";
+import Buton from "../../Components/Button/Button";
+import Select from "../../Components/Select/Select";
 import { Formik } from "formik";
 import * as yup from "yup";
 import "./Banks.css";
