@@ -2,24 +2,21 @@ import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Login from './Login';
-import Register from './Register';
-import Home from './Home';
-import ExpIncome from './ExpenseIncome';
-import Banks from './Banks';
-import Transactions from './Transactions';
-import NavMenu from './Components/NavMenu/NavMenu';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Login from "./Login";
+import Register from "./Register";
+import Home from "./Home";
+import ExpIncome from "./ExpenseIncome";
+import Banks from "./Banks";
+import Transactions from "./Transactions";
+import NavMenu from "./Components/NavMenu/NavMenu";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  
   return (
     <div className="App">
-      
       <Router>
         <div>
-        <NavMenu isLoggedIn={true}/>
+          <NavMenu isLoggedIn={false} />
           <div className="content">
             <Switch>
               <Route exact path="/" component={Login} />
